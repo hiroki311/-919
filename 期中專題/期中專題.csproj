@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{55E3FCE5-AB30-4336-AD31-232BADABF564}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>期中專題</RootNamespace>
+    <AssemblyName>期中專題</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="92Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>92Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="92Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="92Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>92Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="action報表.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="action總表.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COMM.cs" />
+    <Compile Include="Discount.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hotel_List.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Itinerary_Plan行程計畫.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Member_Info_List.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetails隨行人員.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order訂單.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment_Method.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Trade_Info.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transportation.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transportation_List.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl2訂單.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl2訂單.designer.cs">
+      <DependentUpon>UserControl2訂單.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl全抓.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl全抓.Designer.cs">
+      <DependentUpon>UserControl全抓.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl會員專區.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl會員專區.Designer.cs">
+      <DependentUpon>UserControl會員專區.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主題類表.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="交通工具資料表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="交通工具資料表.designer.cs">
+      <DependentUpon>交通工具資料表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="優惠方案.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="各地區名稱總表.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="國家名稱.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="國家表ID.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="城市總表.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="旅遊類型總表.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="星球旅遊後台管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="星球旅遊後台管理.Designer.cs">
+      <DependentUpon>星球旅遊後台管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="景點名稱總表.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="景點報表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="景點報表.designer.cs">
+      <DependentUpon>景點報表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="景點報表ID.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="會員專區.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="會員專區.Designer.cs">
+      <DependentUpon>會員專區.cs</DependentUpon>
+    </Compile>
+    <Compile Include="會員專區_我的訂單.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="會員專區_我的訂單.Designer.cs">
+      <DependentUpon>會員專區_我的訂單.cs</DependentUpon>
+    </Compile>
+    <Compile Include="會員專區_我的評論.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="會員專區_我的評論.Designer.cs">
+      <DependentUpon>會員專區_我的評論.cs</DependentUpon>
+    </Compile>
+    <Compile Include="會員專區_資料修改.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="會員專區_資料修改.Designer.cs">
+      <DependentUpon>會員專區_資料修改.cs</DependentUpon>
+    </Compile>
+    <Compile Include="行程明細.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="行程明細資料表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="行程明細資料表.designer.cs">
+      <DependentUpon>行程明細資料表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="行程計畫.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="行程計畫.Designer.cs">
+      <DependentUpon>行程計畫.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageToBinary.cs" />
+    <Compile Include="NWModel1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NWModel1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NWModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NWModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NWModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NWModel1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>NWModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="旅遊詳細資訊.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="旅遊詳細資訊.Designer.cs">
+      <DependentUpon>旅遊詳細資訊.cs</DependentUpon>
+    </Compile>
+    <Compile Include="星球旅遊.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="星球旅遊.Designer.cs">
+      <DependentUpon>星球旅遊.cs</DependentUpon>
+    </Compile>
+    <Compile Include="會員註冊系統.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="會員註冊系統.Designer.cs">
+      <DependentUpon>會員註冊系統.cs</DependentUpon>
+    </Compile>
+    <Compile Include="會員資料修改.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="會員資料修改.Designer.cs">
+      <DependentUpon>會員資料修改.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="訂單狀態編號ID.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="評價頁面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="評價頁面.designer.cs">
+      <DependentUpon>評價頁面.cs</DependentUpon>
+    </Compile>
+    <Compile Include="評分報表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="評分報表.designer.cs">
+      <DependentUpon>評分報表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="評分表.cs">
+      <DependentUpon>92Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="購物車.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="購物車.designer.cs">
+      <DependentUpon>購物車.cs</DependentUpon>
+    </Compile>
+    <Compile Include="飯店列表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="飯店列表.designer.cs">
+      <DependentUpon>飯店列表.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UserControl2訂單.resx">
+      <DependentUpon>UserControl2訂單.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl全抓.resx">
+      <DependentUpon>UserControl全抓.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl會員專區.resx">
+      <DependentUpon>UserControl會員專區.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="交通工具資料表.resx">
+      <DependentUpon>交通工具資料表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="星球旅遊後台管理.resx">
+      <DependentUpon>星球旅遊後台管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="景點報表.resx">
+      <DependentUpon>景點報表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="會員專區.resx">
+      <DependentUpon>會員專區.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="會員專區_我的訂單.resx">
+      <DependentUpon>會員專區_我的訂單.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="會員專區_我的評論.resx">
+      <DependentUpon>會員專區_我的評論.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="會員專區_資料修改.resx">
+      <DependentUpon>會員專區_資料修改.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="行程明細資料表.resx">
+      <DependentUpon>行程明細資料表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="行程計畫.resx">
+      <DependentUpon>行程計畫.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="旅遊詳細資訊.resx">
+      <DependentUpon>旅遊詳細資訊.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="星球旅遊.resx">
+      <DependentUpon>星球旅遊.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="會員註冊系統.resx">
+      <DependentUpon>會員註冊系統.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="會員資料修改.resx">
+      <DependentUpon>會員資料修改.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="評價頁面.resx">
+      <DependentUpon>評價頁面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="評分報表.resx">
+      <DependentUpon>評分報表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="購物車.resx">
+      <DependentUpon>購物車.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="飯店列表.resx">
+      <DependentUpon>飯店列表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="NWModel1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NWModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="92Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>92Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="92Model1.edmx.diagram">
+      <DependentUpon>92Model1.edmx</DependentUpon>
+    </None>
+    <None Include="NWModel1.edmx.diagram">
+      <DependentUpon>NWModel1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="92Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>92Model1.edmx</DependentUpon>
+      <LastGenOutput>92Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="92Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>92Model1.edmx</DependentUpon>
+      <LastGenOutput>92Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="images\v.png" />
+    <Content Include="images\x.png" />
+    <Content Include="NWModel1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NWModel1.edmx</DependentUpon>
+      <LastGenOutput>NWModel1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="NWModel1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NWModel1.edmx</DependentUpon>
+      <LastGenOutput>NWModel1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,1634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TravelerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="action報表">
+          <Key>
+            <PropertyRef Name="action報表ID" />
+          </Key>
+          <Property Name="action報表ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Member ID" Type="int" Nullable="false" />
+          <Property Name="行為ID" Type="int" Nullable="false" />
+          <Property Name="評分表ID" Type="int" Nullable="false" />
+          <Property Name="Itinerary ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="action總表">
+          <Key>
+            <PropertyRef Name="行為ID" />
+          </Key>
+          <Property Name="行為ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="行為名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Discount">
+          <Key>
+            <PropertyRef Name="Discount ID" />
+          </Key>
+          <Property Name="Discount ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="優惠方案ID" Type="int" />
+          <Property Name="Member ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Hotel List">
+          <Key>
+            <PropertyRef Name="Hotel ID" />
+          </Key>
+          <Property Name="Hotel ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hotel Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Hotel Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hotel Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Hotel image" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Itinerary Plan行程計畫">
+          <Key>
+            <PropertyRef Name="Itinerary ID" />
+          </Key>
+          <Property Name="Itinerary ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Itinerary Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Itinerary Days" Type="smallint" Nullable="false" />
+          <Property Name="Departure Date" Type="date" Nullable="false" />
+          <Property Name="Inbound Date" Type="date" Nullable="false" />
+          <Property Name="Maximum number of people" Type="smallint" Nullable="false" />
+          <Property Name="Single Journey Price" Type="money" Nullable="false" />
+          <Property Name="Itinerary Describtion" Type="nvarchar(max)" />
+          <Property Name="旅遊類型ID" Type="int" Nullable="false" />
+          <Property Name="旅遊主題ID" Type="int" Nullable="false" />
+          <Property Name="介紹文章" Type="nvarchar(max)" />
+          <Property Name="圖片" Type="varbinary(max)" />
+          <Property Name="國家總表ID" Type="int" Nullable="false" />
+          <Property Name="尚可參加人數" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member Info List">
+          <Key>
+            <PropertyRef Name="Member ID" />
+          </Key>
+          <Property Name="Member ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Phone_Number" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="D.O.B" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="bonus points" Type="int" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID_number" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SEX" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="image" Type="varbinary(max)" />
+          <Property Name="Passport Number" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrderDetails隨行人員">
+          <Key>
+            <PropertyRef Name="OrderDetails隨行人員ID" />
+          </Key>
+          <Property Name="OrderDetails隨行人員ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Member ID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="購買日期" Type="datetime" Nullable="false" />
+          <Property Name="人數" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order訂單">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Unified Business No." Type="int" />
+          <Property Name="Member ID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Payment Methods ID" Type="int" Nullable="false" />
+          <Property Name="Itinerary ID" Type="int" />
+          <Property Name="Credit Card Number" Type="varchar" MaxLength="30" />
+          <Property Name="訂單狀態編號ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment Method">
+          <Key>
+            <PropertyRef Name="Payment Methods ID" />
+          </Key>
+          <Property Name="Payment Methods ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="[Payment Methods" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Trade Info">
+          <Key>
+            <PropertyRef Name="Order No." />
+          </Key>
+          <Property Name="Order No." Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Unified Business No." Type="int" />
+          <Property Name="Trade Detail" Type="int" Nullable="false" />
+          <Property Name="Bonus" Type="int" />
+          <Property Name="Invoice number" Type="int" Nullable="false" />
+          <Property Name="Chechout Date" Type="date" Nullable="false" />
+          <Property Name="Member ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transportation">
+          <Key>
+            <PropertyRef Name="TransportationID" />
+          </Key>
+          <Property Name="TransportationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="行程明細ID" Type="int" Nullable="false" />
+          <Property Name="TransportationList ID" Type="int" Nullable="false" />
+          <Property Name="交通工具班次" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Company Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Departure" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Destination" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Departure Time" Type="datetime" Nullable="false" />
+          <Property Name="Time of Arrival" Type="datetime" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transportation List">
+          <Key>
+            <PropertyRef Name="TransportationList ID" />
+          </Key>
+          <Property Name="TransportationList ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Transportation" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="主題類表">
+          <Key>
+            <PropertyRef Name="旅遊主題ID" />
+          </Key>
+          <Property Name="旅遊主題ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="旅遊主題名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="各地區名稱總表">
+          <Key>
+            <PropertyRef Name="各地地區名稱ID" />
+          </Key>
+          <Property Name="各地地區名稱ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="各地地區名稱" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="行程明細">
+          <Key>
+            <PropertyRef Name="行程明細ID" />
+          </Key>
+          <Property Name="行程明細ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Itinerary ID" Type="int" Nullable="false" />
+          <Property Name="DAY" Type="int" />
+          <Property Name="Hotel ID" Type="int" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="城市總表">
+          <Key>
+            <PropertyRef Name="城市ID" />
+          </Key>
+          <Property Name="城市ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="各地地區名稱ID" Type="int" Nullable="false" />
+          <Property Name="城市名稱" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="訂單狀態編號ID">
+          <Key>
+            <PropertyRef Name="訂單狀態編號ID" />
+          </Key>
+          <Property Name="訂單狀態編號ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="訂單狀態" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="旅遊類型總表">
+          <Key>
+            <PropertyRef Name="旅遊類型ID" />
+          </Key>
+          <Property Name="旅遊類型ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="旅遊類型" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="國家名稱">
+          <Key>
+            <PropertyRef Name="國家總表ID" />
+          </Key>
+          <Property Name="國家總表ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="國家名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="各地地區名稱ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="國家表ID">
+          <Key>
+            <PropertyRef Name="國家表ID" />
+          </Key>
+          <Property Name="國家表ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="各地地區名稱ID" Type="int" Nullable="false" />
+          <Property Name="國家名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="景點名稱總表">
+          <Key>
+            <PropertyRef Name="景點名稱ID" />
+          </Key>
+          <Property Name="景點名稱ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="景點名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="城市ID" Type="int" Nullable="false" />
+          <Property Name="景點描述" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="景點圖片1" Type="varbinary(max)" Nullable="false" />
+          <Property Name="景點圖片2" Type="varbinary(max)" Nullable="false" />
+          <Property Name="景點圖片3" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="景點報表ID">
+          <Key>
+            <PropertyRef Name="景點報表ID" />
+          </Key>
+          <Property Name="景點報表ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="行程明細ID" Type="int" Nullable="false" />
+          <Property Name="景點名稱ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="評分表">
+          <Key>
+            <PropertyRef Name="評分表ID" />
+          </Key>
+          <Property Name="評分表ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="評分" Type="nvarchar" MaxLength="50" />
+          <Property Name="評論" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="評論日期" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="優惠方案">
+          <Key>
+            <PropertyRef Name="優惠方案ID" />
+          </Key>
+          <Property Name="優惠方案ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="優惠方案名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_[Itinerary Plan]行程計畫_主題類表">
+          <End Role="主題類表" Type="Self.主題類表" Multiplicity="1" />
+          <End Role="Itinerary Plan行程計畫" Type="Self.Itinerary Plan行程計畫" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="主題類表">
+              <PropertyRef Name="旅遊主題ID" />
+            </Principal>
+            <Dependent Role="Itinerary Plan行程計畫">
+              <PropertyRef Name="旅遊主題ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_[Itinerary Plan]行程計畫_旅遊類型總表">
+          <End Role="旅遊類型總表" Type="Self.旅遊類型總表" Multiplicity="1" />
+          <End Role="Itinerary Plan行程計畫" Type="Self.Itinerary Plan行程計畫" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="旅遊類型總表">
+              <PropertyRef Name="旅遊類型ID" />
+            </Principal>
+            <Dependent Role="Itinerary Plan行程計畫">
+              <PropertyRef Name="旅遊類型ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_action報表_action總表">
+          <End Role="action總表" Type="Self.action總表" Multiplicity="1" />
+          <End Role="action報表" Type="Self.action報表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="action總表">
+              <PropertyRef Name="行為ID" />
+            </Principal>
+            <Dependent Role="action報表">
+              <PropertyRef Name="行為ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_action報表_Itinerary Plan行程計畫">
+          <End Role="Itinerary Plan行程計畫" Type="Self.Itinerary Plan行程計畫" Multiplicity="1" />
+          <End Role="action報表" Type="Self.action報表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Itinerary Plan行程計畫">
+              <PropertyRef Name="Itinerary ID" />
+            </Principal>
+            <Dependent Role="action報表">
+              <PropertyRef Name="Itinerary ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_action報表_Member Info List">
+          <End Role="Member Info List" Type="Self.Member Info List" Multiplicity="1" />
+          <End Role="action報表" Type="Self.action報表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member Info List">
+              <PropertyRef Name="Member ID" />
+            </Principal>
+            <Dependent Role="action報表">
+              <PropertyRef Name="Member ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_action報表_評分表">
+          <End Role="評分表" Type="Self.評分表" Multiplicity="1" />
+          <End Role="action報表" Type="Self.action報表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="評分表">
+              <PropertyRef Name="評分表ID" />
+            </Principal>
+            <Dependent Role="action報表">
+              <PropertyRef Name="評分表ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Discount_Member Info List">
+          <End Role="Member Info List" Type="Self.Member Info List" Multiplicity="0..1" />
+          <End Role="Discount" Type="Self.Discount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member Info List">
+              <PropertyRef Name="Member ID" />
+            </Principal>
+            <Dependent Role="Discount">
+              <PropertyRef Name="Member ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Discount_優惠方案">
+          <End Role="優惠方案" Type="Self.優惠方案" Multiplicity="0..1" />
+          <End Role="Discount" Type="Self.Discount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="優惠方案">
+              <PropertyRef Name="優惠方案ID" />
+            </Principal>
+            <Dependent Role="Discount">
+              <PropertyRef Name="優惠方案ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Itinerary Plan行程計畫_國家名稱">
+          <End Role="國家名稱" Type="Self.國家名稱" Multiplicity="1" />
+          <End Role="Itinerary Plan行程計畫" Type="Self.Itinerary Plan行程計畫" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="國家名稱">
+              <PropertyRef Name="國家總表ID" />
+            </Principal>
+            <Dependent Role="Itinerary Plan行程計畫">
+              <PropertyRef Name="國家總表ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails隨行人員_Order訂單">
+          <End Role="Order訂單" Type="Self.Order訂單" Multiplicity="1" />
+          <End Role="OrderDetails隨行人員" Type="Self.OrderDetails隨行人員" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order訂單">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDetails隨行人員">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order訂單_[Itinerary Plan]行程計畫">
+          <End Role="Itinerary Plan行程計畫" Type="Self.Itinerary Plan行程計畫" Multiplicity="0..1" />
+          <End Role="Order訂單" Type="Self.Order訂單" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Itinerary Plan行程計畫">
+              <PropertyRef Name="Itinerary ID" />
+            </Principal>
+            <Dependent Role="Order訂單">
+              <PropertyRef Name="Itinerary ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order訂單_Member Info List">
+          <End Role="Member Info List" Type="Self.Member Info List" Multiplicity="1" />
+          <End Role="Order訂單" Type="Self.Order訂單" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member Info List">
+              <PropertyRef Name="Member ID" />
+            </Principal>
+            <Dependent Role="Order訂單">
+              <PropertyRef Name="Member ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order訂單_Payment Method">
+          <End Role="Payment Method" Type="Self.Payment Method" Multiplicity="1" />
+          <End Role="Order訂單" Type="Self.Order訂單" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment Method">
+              <PropertyRef Name="Payment Methods ID" />
+            </Principal>
+            <Dependent Role="Order訂單">
+              <PropertyRef Name="Payment Methods ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order訂單_訂單狀態編號ID">
+          <End Role="訂單狀態編號ID" Type="Self.訂單狀態編號ID" Multiplicity="1" />
+          <End Role="Order訂單" Type="Self.Order訂單" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="訂單狀態編號ID">
+              <PropertyRef Name="訂單狀態編號ID" />
+            </Principal>
+            <Dependent Role="Order訂單">
+              <PropertyRef Name="訂單狀態編號ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transportation_Transportation List">
+          <End Role="Transportation List" Type="Self.Transportation List" Multiplicity="1" />
+          <End Role="Transportation" Type="Self.Transportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transportation List">
+              <PropertyRef Name="TransportationList ID" />
+            </Principal>
+            <Dependent Role="Transportation">
+              <PropertyRef Name="TransportationList ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transportation_行程明細">
+          <End Role="行程明細" Type="Self.行程明細" Multiplicity="1" />
+          <End Role="Transportation" Type="Self.Transportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="行程明細">
+              <PropertyRef Name="行程明細ID" />
+            </Principal>
+            <Dependent Role="Transportation">
+              <PropertyRef Name="行程明細ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_交易資訊_會員資料總表">
+          <End Role="Member Info List" Type="Self.Member Info List" Multiplicity="1" />
+          <End Role="Trade Info" Type="Self.Trade Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member Info List">
+              <PropertyRef Name="Member ID" />
+            </Principal>
+            <Dependent Role="Trade Info">
+              <PropertyRef Name="Member ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_行程明細_[Itinerary Plan]行程計畫">
+          <End Role="Itinerary Plan行程計畫" Type="Self.Itinerary Plan行程計畫" Multiplicity="1" />
+          <End Role="行程明細" Type="Self.行程明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Itinerary Plan行程計畫">
+              <PropertyRef Name="Itinerary ID" />
+            </Principal>
+            <Dependent Role="行程明細">
+              <PropertyRef Name="Itinerary ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_國家名稱_各地區名稱總表">
+          <End Role="各地區名稱總表" Type="Self.各地區名稱總表" Multiplicity="1" />
+          <End Role="國家名稱" Type="Self.國家名稱" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="各地區名稱總表">
+              <PropertyRef Name="各地地區名稱ID" />
+            </Principal>
+            <Dependent Role="國家名稱">
+              <PropertyRef Name="各地地區名稱ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_單日行程表_住宿飯店總表">
+          <End Role="Hotel List" Type="Self.Hotel List" Multiplicity="0..1" />
+          <End Role="行程明細" Type="Self.行程明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel List">
+              <PropertyRef Name="Hotel ID" />
+            </Principal>
+            <Dependent Role="行程明細">
+              <PropertyRef Name="Hotel ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_景點名稱總表_城市總表">
+          <End Role="城市總表" Type="Self.城市總表" Multiplicity="1" />
+          <End Role="景點名稱總表" Type="Self.景點名稱總表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="城市總表">
+              <PropertyRef Name="城市ID" />
+            </Principal>
+            <Dependent Role="景點名稱總表">
+              <PropertyRef Name="城市ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_景點報表ID_行程明細1">
+          <End Role="行程明細" Type="Self.行程明細" Multiplicity="1" />
+          <End Role="景點報表ID" Type="Self.景點報表ID" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="行程明細">
+              <PropertyRef Name="行程明細ID" />
+            </Principal>
+            <Dependent Role="景點報表ID">
+              <PropertyRef Name="行程明細ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_景點報表ID_景點名稱總表">
+          <End Role="景點名稱總表" Type="Self.景點名稱總表" Multiplicity="1" />
+          <End Role="景點報表ID" Type="Self.景點報表ID" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="景點名稱總表">
+              <PropertyRef Name="景點名稱ID" />
+            </Principal>
+            <Dependent Role="景點報表ID">
+              <PropertyRef Name="景點名稱ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TravelerModelStoreContainer">
+          <EntitySet Name="action報表" EntityType="Self.action報表" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="action總表" EntityType="Self.action總表" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discount" EntityType="Self.Discount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hotel List" EntityType="Self.Hotel List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Itinerary Plan行程計畫" EntityType="Self.Itinerary Plan行程計畫" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member Info List" EntityType="Self.Member Info List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetails隨行人員" EntityType="Self.OrderDetails隨行人員" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order訂單" EntityType="Self.Order訂單" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment Method" EntityType="Self.Payment Method" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trade Info" EntityType="Self.Trade Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transportation" EntityType="Self.Transportation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transportation List" EntityType="Self.Transportation List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="主題類表" EntityType="Self.主題類表" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="各地區名稱總表" EntityType="Self.各地區名稱總表" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="行程明細" EntityType="Self.行程明細" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="城市總表" EntityType="Self.城市總表" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="訂單狀態編號ID" EntityType="Self.訂單狀態編號ID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="旅遊類型總表" EntityType="Self.旅遊類型總表" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="國家名稱" EntityType="Self.國家名稱" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="國家表ID" EntityType="Self.國家表ID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="景點名稱總表" EntityType="Self.景點名稱總表" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="景點報表ID" EntityType="Self.景點報表ID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="評分表" EntityType="Self.評分表" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="優惠方案" EntityType="Self.優惠方案" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_[Itinerary Plan]行程計畫_主題類表" Association="Self.FK_[Itinerary Plan]行程計畫_主題類表">
+            <End Role="主題類表" EntitySet="主題類表" />
+            <End Role="Itinerary Plan行程計畫" EntitySet="Itinerary Plan行程計畫" />
+          </AssociationSet>
+          <AssociationSet Name="FK_[Itinerary Plan]行程計畫_旅遊類型總表" Association="Self.FK_[Itinerary Plan]行程計畫_旅遊類型總表">
+            <End Role="旅遊類型總表" EntitySet="旅遊類型總表" />
+            <End Role="Itinerary Plan行程計畫" EntitySet="Itinerary Plan行程計畫" />
+          </AssociationSet>
+          <AssociationSet Name="FK_action報表_action總表" Association="Self.FK_action報表_action總表">
+            <End Role="action總表" EntitySet="action總表" />
+            <End Role="action報表" EntitySet="action報表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_action報表_Itinerary Plan行程計畫" Association="Self.FK_action報表_Itinerary Plan行程計畫">
+            <End Role="Itinerary Plan行程計畫" EntitySet="Itinerary Plan行程計畫" />
+            <End Role="action報表" EntitySet="action報表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_action報表_Member Info List" Association="Self.FK_action報表_Member Info List">
+            <End Role="Member Info List" EntitySet="Member Info List" />
+            <End Role="action報表" EntitySet="action報表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_action報表_評分表" Association="Self.FK_action報表_評分表">
+            <End Role="評分表" EntitySet="評分表" />
+            <End Role="action報表" EntitySet="action報表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Discount_Member Info List" Association="Self.FK_Discount_Member Info List">
+            <End Role="Member Info List" EntitySet="Member Info List" />
+            <End Role="Discount" EntitySet="Discount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Discount_優惠方案" Association="Self.FK_Discount_優惠方案">
+            <End Role="優惠方案" EntitySet="優惠方案" />
+            <End Role="Discount" EntitySet="Discount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Itinerary Plan行程計畫_國家名稱" Association="Self.FK_Itinerary Plan行程計畫_國家名稱">
+            <End Role="國家名稱" EntitySet="國家名稱" />
+            <End Role="Itinerary Plan行程計畫" EntitySet="Itinerary Plan行程計畫" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails隨行人員_Order訂單" Association="Self.FK_OrderDetails隨行人員_Order訂單">
+            <End Role="Order訂單" EntitySet="Order訂單" />
+            <End Role="OrderDetails隨行人員" EntitySet="OrderDetails隨行人員" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order訂單_[Itinerary Plan]行程計畫" Association="Self.FK_Order訂單_[Itinerary Plan]行程計畫">
+            <End Role="Itinerary Plan行程計畫" EntitySet="Itinerary Plan行程計畫" />
+            <End Role="Order訂單" EntitySet="Order訂單" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order訂單_Member Info List" Association="Self.FK_Order訂單_Member Info List">
+            <End Role="Member Info List" EntitySet="Member Info List" />
+            <End Role="Order訂單" EntitySet="Order訂單" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order訂單_Payment Method" Association="Self.FK_Order訂單_Payment Method">
+            <End Role="Payment Method" EntitySet="Payment Method" />
+            <End Role="Order訂單" EntitySet="Order訂單" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order訂單_訂單狀態編號ID" Association="Self.FK_Order訂單_訂單狀態編號ID">
+            <End Role="訂單狀態編號ID" EntitySet="訂單狀態編號ID" />
+            <End Role="Order訂單" EntitySet="Order訂單" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transportation_Transportation List" Association="Self.FK_Transportation_Transportation List">
+            <End Role="Transportation List" EntitySet="Transportation List" />
+            <End Role="Transportation" EntitySet="Transportation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transportation_行程明細" Association="Self.FK_Transportation_行程明細">
+            <End Role="行程明細" EntitySet="行程明細" />
+            <End Role="Transportation" EntitySet="Transportation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_交易資訊_會員資料總表" Association="Self.FK_交易資訊_會員資料總表">
+            <End Role="Member Info List" EntitySet="Member Info List" />
+            <End Role="Trade Info" EntitySet="Trade Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_行程明細_[Itinerary Plan]行程計畫" Association="Self.FK_行程明細_[Itinerary Plan]行程計畫">
+            <End Role="Itinerary Plan行程計畫" EntitySet="Itinerary Plan行程計畫" />
+            <End Role="行程明細" EntitySet="行程明細" />
+          </AssociationSet>
+          <AssociationSet Name="FK_國家名稱_各地區名稱總表" Association="Self.FK_國家名稱_各地區名稱總表">
+            <End Role="各地區名稱總表" EntitySet="各地區名稱總表" />
+            <End Role="國家名稱" EntitySet="國家名稱" />
+          </AssociationSet>
+          <AssociationSet Name="FK_單日行程表_住宿飯店總表" Association="Self.FK_單日行程表_住宿飯店總表">
+            <End Role="Hotel List" EntitySet="Hotel List" />
+            <End Role="行程明細" EntitySet="行程明細" />
+          </AssociationSet>
+          <AssociationSet Name="FK_景點名稱總表_城市總表" Association="Self.FK_景點名稱總表_城市總表">
+            <End Role="城市總表" EntitySet="城市總表" />
+            <End Role="景點名稱總表" EntitySet="景點名稱總表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_景點報表ID_行程明細1" Association="Self.FK_景點報表ID_行程明細1">
+            <End Role="行程明細" EntitySet="行程明細" />
+            <End Role="景點報表ID" EntitySet="景點報表ID" />
+          </AssociationSet>
+          <AssociationSet Name="FK_景點報表ID_景點名稱總表" Association="Self.FK_景點報表ID_景點名稱總表">
+            <End Role="景點名稱總表" EntitySet="景點名稱總表" />
+            <End Role="景點報表ID" EntitySet="景點報表ID" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TravelerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TravelerEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="action報表" EntityType="TravelerModel.action報表" />
+          <EntitySet Name="action總表" EntityType="TravelerModel.action總表" />
+          <EntitySet Name="Discounts" EntityType="TravelerModel.Discount" />
+          <EntitySet Name="Hotel_Lists" EntityType="TravelerModel.Hotel_List" />
+          <EntitySet Name="Itinerary_Plan行程計畫" EntityType="TravelerModel.Itinerary_Plan行程計畫" />
+          <EntitySet Name="Member_Info_Lists" EntityType="TravelerModel.Member_Info_List" />
+          <EntitySet Name="OrderDetails隨行人員" EntityType="TravelerModel.OrderDetails隨行人員" />
+          <EntitySet Name="Order訂單" EntityType="TravelerModel.Order訂單" />
+          <EntitySet Name="Payment_Methods" EntityType="TravelerModel.Payment_Method" />
+          <EntitySet Name="sysdiagrams" EntityType="TravelerModel.sysdiagram" />
+          <EntitySet Name="Trade_Infoes" EntityType="TravelerModel.Trade_Info" />
+          <EntitySet Name="Transportations" EntityType="TravelerModel.Transportation" />
+          <EntitySet Name="Transportation_Lists" EntityType="TravelerModel.Transportation_List" />
+          <EntitySet Name="主題類表" EntityType="TravelerModel.主題類表" />
+          <EntitySet Name="各地區名稱總表" EntityType="TravelerModel.各地區名稱總表" />
+          <EntitySet Name="行程明細" EntityType="TravelerModel.行程明細" />
+          <EntitySet Name="城市總表" EntityType="TravelerModel.城市總表" />
+          <EntitySet Name="訂單狀態編號ID" EntityType="TravelerModel.訂單狀態編號ID" />
+          <EntitySet Name="旅遊類型總表" EntityType="TravelerModel.旅遊類型總表" />
+          <EntitySet Name="國家名稱" EntityType="TravelerModel.國家名稱" />
+          <EntitySet Name="國家表ID" EntityType="TravelerModel.國家表ID" />
+          <EntitySet Name="景點名稱總表" EntityType="TravelerModel.景點名稱總表" />
+          <EntitySet Name="景點報表ID" EntityType="TravelerModel.景點報表ID" />
+          <EntitySet Name="評分表" EntityType="TravelerModel.評分表" />
+          <EntitySet Name="優惠方案" EntityType="TravelerModel.優惠方案" />
+          <AssociationSet Name="FK_action報表_action總表" Association="TravelerModel.FK_action報表_action總表">
+            <End Role="action總表" EntitySet="action總表" />
+            <End Role="action報表" EntitySet="action報表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_action報表_Itinerary_Plan行程計畫" Association="TravelerModel.FK_action報表_Itinerary_Plan行程計畫">
+            <End Role="Itinerary_Plan行程計畫" EntitySet="Itinerary_Plan行程計畫" />
+            <End Role="action報表" EntitySet="action報表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_action報表_Member_Info_List" Association="TravelerModel.FK_action報表_Member_Info_List">
+            <End Role="Member_Info_List" EntitySet="Member_Info_Lists" />
+            <End Role="action報表" EntitySet="action報表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_action報表_評分表" Association="TravelerModel.FK_action報表_評分表">
+            <End Role="評分表" EntitySet="評分表" />
+            <End Role="action報表" EntitySet="action報表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Discount_Member_Info_List" Association="TravelerModel.FK_Discount_Member_Info_List">
+            <End Role="Member_Info_List" EntitySet="Member_Info_Lists" />
+            <End Role="Discount" EntitySet="Discounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Discount_優惠方案" Association="TravelerModel.FK_Discount_優惠方案">
+            <End Role="優惠方案" EntitySet="優惠方案" />
+            <End Role="Discount" EntitySet="Discounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_單日行程表_住宿飯店總表" Association="TravelerModel.FK_單日行程表_住宿飯店總表">
+            <End Role="Hotel_List" EntitySet="Hotel_Lists" />
+            <End Role="行程明細" EntitySet="行程明細" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Itinerary_Plan_行程計畫_主題類表" Association="TravelerModel.FK__Itinerary_Plan_行程計畫_主題類表">
+            <End Role="主題類表" EntitySet="主題類表" />
+            <End Role="Itinerary_Plan行程計畫" EntitySet="Itinerary_Plan行程計畫" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Itinerary_Plan_行程計畫_旅遊類型總表" Association="TravelerModel.FK__Itinerary_Plan_行程計畫_旅遊類型總表">
+            <End Role="旅遊類型總表" EntitySet="旅遊類型總表" />
+            <End Role="Itinerary_Plan行程計畫" EntitySet="Itinerary_Plan行程計畫" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Itinerary_Plan行程計畫_國家名稱" Association="TravelerModel.FK_Itinerary_Plan行程計畫_國家名稱">
+            <End Role="國家名稱" EntitySet="國家名稱" />
+            <End Role="Itinerary_Plan行程計畫" EntitySet="Itinerary_Plan行程計畫" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order訂單__Itinerary_Plan_行程計畫" Association="TravelerModel.FK_Order訂單__Itinerary_Plan_行程計畫">
+            <End Role="Itinerary_Plan行程計畫" EntitySet="Itinerary_Plan行程計畫" />
+            <End Role="Order訂單" EntitySet="Order訂單" />
+          </AssociationSet>
+          <AssociationSet Name="FK_行程明細__Itinerary_Plan_行程計畫" Association="TravelerModel.FK_行程明細__Itinerary_Plan_行程計畫">
+            <End Role="Itinerary_Plan行程計畫" EntitySet="Itinerary_Plan行程計畫" />
+            <End Role="行程明細" EntitySet="行程明細" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order訂單_Member_Info_List" Association="TravelerModel.FK_Order訂單_Member_Info_List">
+            <End Role="Member_Info_List" EntitySet="Member_Info_Lists" />
+            <End Role="Order訂單" EntitySet="Order訂單" />
+          </AssociationSet>
+          <AssociationSet Name="FK_交易資訊_會員資料總表" Association="TravelerModel.FK_交易資訊_會員資料總表">
+            <End Role="Member_Info_List" EntitySet="Member_Info_Lists" />
+            <End Role="Trade_Info" EntitySet="Trade_Infoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails隨行人員_Order訂單" Association="TravelerModel.FK_OrderDetails隨行人員_Order訂單">
+            <End Role="Order訂單" EntitySet="Order訂單" />
+            <End Role="OrderDetails隨行人員" EntitySet="OrderDetails隨行人員" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order訂單_Payment_Method" Association="TravelerModel.FK_Order訂單_Payment_Method">
+            <End Role="Payment_Method" EntitySet="Payment_Methods" />
+            <End Role="Order訂單" EntitySet="Order訂單" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order訂單_訂單狀態編號ID" Association="TravelerModel.FK_Order訂單_訂單狀態編號ID">
+            <End Role="訂單狀態編號ID" EntitySet="訂單狀態編號ID" />
+            <End Role="Order訂單" EntitySet="Order訂單" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transportation_Transportation_List" Association="TravelerModel.FK_Transportation_Transportation_List">
+            <End Role="Transportation_List" EntitySet="Transportation_Lists" />
+            <End Role="Transportation" EntitySet="Transportations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transportation_行程明細" Association="TravelerModel.FK_Transportation_行程明細">
+            <End Role="行程明細" EntitySet="行程明細" />
+            <End Role="Transportation" EntitySet="Transportations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_國家名稱_各地區名稱總表" Association="TravelerModel.FK_國家名稱_各地區名稱總表">
+            <End Role="各地區名稱總表" EntitySet="各地區名稱總表" />
+            <End Role="國家名稱" EntitySet="國家名稱" />
+          </AssociationSet>
+          <AssociationSet Name="FK_景點報表ID_行程明細1" Association="TravelerModel.FK_景點報表ID_行程明細1">
+            <End Role="行程明細" EntitySet="行程明細" />
+            <End Role="景點報表ID" EntitySet="景點報表ID" />
+          </AssociationSet>
+          <AssociationSet Name="FK_景點名稱總表_城市總表" Association="TravelerModel.FK_景點名稱總表_城市總表">
+            <End Role="城市總表" EntitySet="城市總表" />
+            <End Role="景點名稱總表" EntitySet="景點名稱總表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_景點報表ID_景點名稱總表" Association="TravelerModel.FK_景點報表ID_景點名稱總表">
+            <End Role="景點名稱總表" EntitySet="景點名稱總表" />
+            <End Role="景點報表ID" EntitySet="景點報表ID" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="action報表">
+          <Key>
+            <PropertyRef Name="action報表ID" />
+          </Key>
+          <Property Name="action報表ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Member_ID" Type="Int32" Nullable="false" />
+          <Property Name="行為ID" Type="Int32" Nullable="false" />
+          <Property Name="評分表ID" Type="Int32" Nullable="false" />
+          <Property Name="Itinerary_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="action總表" Relationship="TravelerModel.FK_action報表_action總表" FromRole="action報表" ToRole="action總表" />
+          <NavigationProperty Name="Itinerary_Plan行程計畫" Relationship="TravelerModel.FK_action報表_Itinerary_Plan行程計畫" FromRole="action報表" ToRole="Itinerary_Plan行程計畫" />
+          <NavigationProperty Name="Member_Info_List" Relationship="TravelerModel.FK_action報表_Member_Info_List" FromRole="action報表" ToRole="Member_Info_List" />
+          <NavigationProperty Name="評分表" Relationship="TravelerModel.FK_action報表_評分表" FromRole="action報表" ToRole="評分表" />
+        </EntityType>
+        <EntityType Name="action總表">
+          <Key>
+            <PropertyRef Name="行為ID" />
+          </Key>
+          <Property Name="行為ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="行為名稱" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="action報表" Relationship="TravelerModel.FK_action報表_action總表" FromRole="action總表" ToRole="action報表" />
+        </EntityType>
+        <EntityType Name="Discount">
+          <Key>
+            <PropertyRef Name="Discount_ID" />
+          </Key>
+          <Property Name="Discount_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="優惠方案ID" Type="Int32" />
+          <Property Name="Member_ID" Type="Int32" />
+          <NavigationProperty Name="Member_Info_List" Relationship="TravelerModel.FK_Discount_Member_Info_List" FromRole="Discount" ToRole="Member_Info_List" />
+          <NavigationProperty Name="優惠方案" Relationship="TravelerModel.FK_Discount_優惠方案" FromRole="Discount" ToRole="優惠方案" />
+        </EntityType>
+        <EntityType Name="Hotel_List">
+          <Key>
+            <PropertyRef Name="Hotel_ID" />
+          </Key>
+          <Property Name="Hotel_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hotel_Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Hotel_Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hotel_Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Hotel_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="行程明細" Relationship="TravelerModel.FK_單日行程表_住宿飯店總表" FromRole="Hotel_List" ToRole="行程明細" />
+        </EntityType>
+        <EntityType Name="Itinerary_Plan行程計畫">
+          <Key>
+            <PropertyRef Name="Itinerary_ID" />
+          </Key>
+          <Property Name="Itinerary_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Itinerary_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Itinerary_Days" Type="Int16" Nullable="false" />
+          <Property Name="Departure_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Inbound_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Maximum_number_of_people" Type="Int16" Nullable="false" />
+          <Property Name="Single_Journey_Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Itinerary_Describtion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="旅遊類型ID" Type="Int32" Nullable="false" />
+          <Property Name="旅遊主題ID" Type="Int32" Nullable="false" />
+          <Property Name="介紹文章" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="圖片" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="國家總表ID" Type="Int32" Nullable="false" />
+          <Property Name="尚可參加人數" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="action報表" Relationship="TravelerModel.FK_action報表_Itinerary_Plan行程計畫" FromRole="Itinerary_Plan行程計畫" ToRole="action報表" />
+          <NavigationProperty Name="主題類表" Relationship="TravelerModel.FK__Itinerary_Plan_行程計畫_主題類表" FromRole="Itinerary_Plan行程計畫" ToRole="主題類表" />
+          <NavigationProperty Name="旅遊類型總表" Relationship="TravelerModel.FK__Itinerary_Plan_行程計畫_旅遊類型總表" FromRole="Itinerary_Plan行程計畫" ToRole="旅遊類型總表" />
+          <NavigationProperty Name="國家名稱" Relationship="TravelerModel.FK_Itinerary_Plan行程計畫_國家名稱" FromRole="Itinerary_Plan行程計畫" ToRole="國家名稱" />
+          <NavigationProperty Name="Order訂單" Relationship="TravelerModel.FK_Order訂單__Itinerary_Plan_行程計畫" FromRole="Itinerary_Plan行程計畫" ToRole="Order訂單" />
+          <NavigationProperty Name="行程明細" Relationship="TravelerModel.FK_行程明細__Itinerary_Plan_行程計畫" FromRole="Itinerary_Plan行程計畫" ToRole="行程明細" />
+        </EntityType>
+        <EntityType Name="Member_Info_List">
+          <Key>
+            <PropertyRef Name="Member_ID" />
+          </Key>
+          <Property Name="Member_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Phone_Number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="D_O_B" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nationality" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="bonus_points" Type="Int32" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ID_number" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SEX" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Passport_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="action報表" Relationship="TravelerModel.FK_action報表_Member_Info_List" FromRole="Member_Info_List" ToRole="action報表" />
+          <NavigationProperty Name="Discounts" Relationship="TravelerModel.FK_Discount_Member_Info_List" FromRole="Member_Info_List" ToRole="Discount" />
+          <NavigationProperty Name="Order訂單" Relationship="TravelerModel.FK_Order訂單_Member_Info_List" FromRole="Member_Info_List" ToRole="Order訂單" />
+          <NavigationProperty Name="Trade_Info" Relationship="TravelerModel.FK_交易資訊_會員資料總表" FromRole="Member_Info_List" ToRole="Trade_Info" />
+        </EntityType>
+        <EntityType Name="OrderDetails隨行人員">
+          <Key>
+            <PropertyRef Name="OrderDetails隨行人員ID" />
+          </Key>
+          <Property Name="OrderDetails隨行人員ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Member_ID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="購買日期" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="人數" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order訂單" Relationship="TravelerModel.FK_OrderDetails隨行人員_Order訂單" FromRole="OrderDetails隨行人員" ToRole="Order訂單" />
+        </EntityType>
+        <EntityType Name="Order訂單">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Unified_Business_No_" Type="Int32" />
+          <Property Name="Member_ID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Payment_Methods_ID" Type="Int32" Nullable="false" />
+          <Property Name="Itinerary_ID" Type="Int32" />
+          <Property Name="Credit_Card_Number" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="訂單狀態編號ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Itinerary_Plan行程計畫" Relationship="TravelerModel.FK_Order訂單__Itinerary_Plan_行程計畫" FromRole="Order訂單" ToRole="Itinerary_Plan行程計畫" />
+          <NavigationProperty Name="Member_Info_List" Relationship="TravelerModel.FK_Order訂單_Member_Info_List" FromRole="Order訂單" ToRole="Member_Info_List" />
+          <NavigationProperty Name="OrderDetails隨行人員" Relationship="TravelerModel.FK_OrderDetails隨行人員_Order訂單" FromRole="Order訂單" ToRole="OrderDetails隨行人員" />
+          <NavigationProperty Name="Payment_Method" Relationship="TravelerModel.FK_Order訂單_Payment_Method" FromRole="Order訂單" ToRole="Payment_Method" />
+          <NavigationProperty Name="訂單狀態編號ID1" Relationship="TravelerModel.FK_Order訂單_訂單狀態編號ID" FromRole="Order訂單" ToRole="訂單狀態編號ID" />
+        </EntityType>
+        <EntityType Name="Payment_Method">
+          <Key>
+            <PropertyRef Name="Payment_Methods_ID" />
+          </Key>
+          <Property Name="Payment_Methods_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_Payment_Methods" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order訂單" Relationship="TravelerModel.FK_Order訂單_Payment_Method" FromRole="Payment_Method" ToRole="Order訂單" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Trade_Info">
+          <Key>
+            <PropertyRef Name="Order_No_" />
+          </Key>
+          <Property Name="Order_No_" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Unified_Business_No_" Type="Int32" />
+          <Property Name="Trade_Detail" Type="Int32" Nullable="false" />
+          <Property Name="Bonus" Type="Int32" />
+          <Property Name="Invoice_number" Type="Int32" Nullable="false" />
+          <Property Name="Chechout_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Member_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Member_Info_List" Relationship="TravelerModel.FK_交易資訊_會員資料總表" FromRole="Trade_Info" ToRole="Member_Info_List" />
+        </EntityType>
+        <EntityType Name="Transportation">
+          <Key>
+            <PropertyRef Name="TransportationID" />
+          </Key>
+          <Property Name="TransportationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="行程明細ID" Type="Int32" Nullable="false" />
+          <Property Name="TransportationList_ID" Type="Int32" Nullable="false" />
+          <Property Name="交通工具班次" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Company_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Departure" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Destination" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Departure_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Time_of_Arrival" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="Transportation_List" Relationship="TravelerModel.FK_Transportation_Transportation_List" FromRole="Transportation" ToRole="Transportation_List" />
+          <NavigationProperty Name="行程明細" Relationship="TravelerModel.FK_Transportation_行程明細" FromRole="Transportation" ToRole="行程明細" />
+        </EntityType>
+        <EntityType Name="Transportation_List">
+          <Key>
+            <PropertyRef Name="TransportationList_ID" />
+          </Key>
+          <Property Name="TransportationList_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Transportation" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Transportations" Relationship="TravelerModel.FK_Transportation_Transportation_List" FromRole="Transportation_List" ToRole="Transportation" />
+        </EntityType>
+        <EntityType Name="主題類表">
+          <Key>
+            <PropertyRef Name="旅遊主題ID" />
+          </Key>
+          <Property Name="旅遊主題ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="旅遊主題名稱" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Itinerary_Plan行程計畫" Relationship="TravelerModel.FK__Itinerary_Plan_行程計畫_主題類表" FromRole="主題類表" ToRole="Itinerary_Plan行程計畫" />
+        </EntityType>
+        <EntityType Name="各地區名稱總表">
+          <Key>
+            <PropertyRef Name="各地地區名稱ID" />
+          </Key>
+          <Property Name="各地地區名稱ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="各地地區名稱" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="國家名稱" Relationship="TravelerModel.FK_國家名稱_各地區名稱總表" FromRole="各地區名稱總表" ToRole="國家名稱" />
+        </EntityType>
+        <EntityType Name="行程明細">
+          <Key>
+            <PropertyRef Name="行程明細ID" />
+          </Key>
+          <Property Name="行程明細ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Itinerary_ID" Type="Int32" Nullable="false" />
+          <Property Name="DAY" Type="Int32" />
+          <Property Name="Hotel_ID" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Hotel_List" Relationship="TravelerModel.FK_單日行程表_住宿飯店總表" FromRole="行程明細" ToRole="Hotel_List" />
+          <NavigationProperty Name="Itinerary_Plan行程計畫" Relationship="TravelerModel.FK_行程明細__Itinerary_Plan_行程計畫" FromRole="行程明細" ToRole="Itinerary_Plan行程計畫" />
+          <NavigationProperty Name="Transportations" Relationship="TravelerModel.FK_Transportation_行程明細" FromRole="行程明細" ToRole="Transportation" />
+          <NavigationProperty Name="景點報表ID" Relationship="TravelerModel.FK_景點報表ID_行程明細1" FromRole="行程明細" ToRole="景點報表ID" />
+        </EntityType>
+        <EntityType Name="城市總表">
+          <Key>
+            <PropertyRef Name="城市ID" />
+          </Key>
+          <Property Name="城市ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="各地地區名稱ID" Type="Int32" Nullable="false" />
+          <Property Name="城市名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="景點名稱總表" Relationship="TravelerModel.FK_景點名稱總表_城市總表" FromRole="城市總表" ToRole="景點名稱總表" />
+        </EntityType>
+        <EntityType Name="訂單狀態編號ID">
+          <Key>
+            <PropertyRef Name="訂單狀態編號ID1" />
+          </Key>
+          <Property Name="訂單狀態編號ID1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="訂單狀態" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order訂單" Relationship="TravelerModel.FK_Order訂單_訂單狀態編號ID" FromRole="訂單狀態編號ID" ToRole="Order訂單" />
+        </EntityType>
+        <EntityType Name="旅遊類型總表">
+          <Key>
+            <PropertyRef Name="旅遊類型ID" />
+          </Key>
+          <Property Name="旅遊類型ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="旅遊類型" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Itinerary_Plan行程計畫" Relationship="TravelerModel.FK__Itinerary_Plan_行程計畫_旅遊類型總表" FromRole="旅遊類型總表" ToRole="Itinerary_Plan行程計畫" />
+        </EntityType>
+        <EntityType Name="國家名稱">
+          <Key>
+            <PropertyRef Name="國家總表ID" />
+          </Key>
+          <Property Name="國家總表ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="國家名稱1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="各地地區名稱ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Itinerary_Plan行程計畫" Relationship="TravelerModel.FK_Itinerary_Plan行程計畫_國家名稱" FromRole="國家名稱" ToRole="Itinerary_Plan行程計畫" />
+          <NavigationProperty Name="各地區名稱總表" Relationship="TravelerModel.FK_國家名稱_各地區名稱總表" FromRole="國家名稱" ToRole="各地區名稱總表" />
+        </EntityType>
+        <EntityType Name="國家表ID">
+          <Key>
+            <PropertyRef Name="國家表ID1" />
+          </Key>
+          <Property Name="國家表ID1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="各地地區名稱ID" Type="Int32" Nullable="false" />
+          <Property Name="國家名稱" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="景點名稱總表">
+          <Key>
+            <PropertyRef Name="景點名稱ID" />
+          </Key>
+          <Property Name="景點名稱ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="景點名稱" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="城市ID" Type="Int32" Nullable="false" />
+          <Property Name="景點描述" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="景點圖片1" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="景點圖片2" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="景點圖片3" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="城市總表" Relationship="TravelerModel.FK_景點名稱總表_城市總表" FromRole="景點名稱總表" ToRole="城市總表" />
+          <NavigationProperty Name="景點報表ID" Relationship="TravelerModel.FK_景點報表ID_景點名稱總表" FromRole="景點名稱總表" ToRole="景點報表ID" />
+        </EntityType>
+        <EntityType Name="景點報表ID">
+          <Key>
+            <PropertyRef Name="景點報表ID1" />
+          </Key>
+          <Property Name="景點報表ID1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="行程明細ID" Type="Int32" Nullable="false" />
+          <Property Name="景點名稱ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="行程明細" Relationship="TravelerModel.FK_景點報表ID_行程明細1" FromRole="景點報表ID" ToRole="行程明細" />
+          <NavigationProperty Name="景點名稱總表" Relationship="TravelerModel.FK_景點報表ID_景點名稱總表" FromRole="景點報表ID" ToRole="景點名稱總表" />
+        </EntityType>
+        <EntityType Name="評分表">
+          <Key>
+            <PropertyRef Name="評分表ID" />
+          </Key>
+          <Property Name="評分表ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="評分" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="評論" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="評論日期" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="action報表" Relationship="TravelerModel.FK_action報表_評分表" FromRole="評分表" ToRole="action報表" />
+        </EntityType>
+        <EntityType Name="優惠方案">
+          <Key>
+            <PropertyRef Name="優惠方案ID" />
+          </Key>
+          <Property Name="優惠方案ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="優惠方案名稱" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Discounts" Relationship="TravelerModel.FK_Discount_優惠方案" FromRole="優惠方案" ToRole="Discount" />
+        </EntityType>
+        <Association Name="FK_action報表_action總表">
+          <End Type="TravelerModel.action總表" Role="action總表" Multiplicity="1" />
+          <End Type="TravelerModel.action報表" Role="action報表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="action總表">
+              <PropertyRef Name="行為ID" />
+            </Principal>
+            <Dependent Role="action報表">
+              <PropertyRef Name="行為ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_action報表_Itinerary_Plan行程計畫">
+          <End Type="TravelerModel.Itinerary_Plan行程計畫" Role="Itinerary_Plan行程計畫" Multiplicity="1" />
+          <End Type="TravelerModel.action報表" Role="action報表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Itinerary_Plan行程計畫">
+              <PropertyRef Name="Itinerary_ID" />
+            </Principal>
+            <Dependent Role="action報表">
+              <PropertyRef Name="Itinerary_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_action報表_Member_Info_List">
+          <End Type="TravelerModel.Member_Info_List" Role="Member_Info_List" Multiplicity="1" />
+          <End Type="TravelerModel.action報表" Role="action報表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Info_List">
+              <PropertyRef Name="Member_ID" />
+            </Principal>
+            <Dependent Role="action報表">
+              <PropertyRef Name="Member_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_action報表_評分表">
+          <End Type="TravelerModel.評分表" Role="評分表" Multiplicity="1" />
+          <End Type="TravelerModel.action報表" Role="action報表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="評分表">
+              <PropertyRef Name="評分表ID" />
+            </Principal>
+            <Dependent Role="action報表">
+              <PropertyRef Name="評分表ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Discount_Member_Info_List">
+          <End Type="TravelerModel.Member_Info_List" Role="Member_Info_List" Multiplicity="0..1" />
+          <End Type="TravelerModel.Discount" Role="Discount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Info_List">
+              <PropertyRef Name="Member_ID" />
+            </Principal>
+            <Dependent Role="Discount">
+              <PropertyRef Name="Member_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Discount_優惠方案">
+          <End Type="TravelerModel.優惠方案" Role="優惠方案" Multiplicity="0..1" />
+          <End Type="TravelerModel.Discount" Role="Discount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="優惠方案">
+              <PropertyRef Name="優惠方案ID" />
+            </Principal>
+            <Dependent Role="Discount">
+              <PropertyRef Name="優惠方案ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_單日行程表_住宿飯店總表">
+          <End Type="TravelerModel.Hotel_List" Role="Hotel_List" Multiplicity="0..1" />
+          <End Type="TravelerModel.行程明細" Role="行程明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel_List">
+              <PropertyRef Name="Hotel_ID" />
+            </Principal>
+            <Dependent Role="行程明細">
+              <PropertyRef Name="Hotel_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Itinerary_Plan_行程計畫_主題類表">
+          <End Type="TravelerModel.主題類表" Role="主題類表" Multiplicity="1" />
+          <End Type="TravelerModel.Itinerary_Plan行程計畫" Role="Itinerary_Plan行程計畫" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="主題類表">
+              <PropertyRef Name="旅遊主題ID" />
+            </Principal>
+            <Dependent Role="Itinerary_Plan行程計畫">
+              <PropertyRef Name="旅遊主題ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Itinerary_Plan_行程計畫_旅遊類型總表">
+          <End Type="TravelerModel.旅遊類型總表" Role="旅遊類型總表" Multiplicity="1" />
+          <End Type="TravelerModel.Itinerary_Plan行程計畫" Role="Itinerary_Plan行程計畫" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="旅遊類型總表">
+              <PropertyRef Name="旅遊類型ID" />
+            </Principal>
+            <Dependent Role="Itinerary_Plan行程計畫">
+              <PropertyRef Name="旅遊類型ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Itinerary_Plan行程計畫_國家名稱">
+          <End Type="TravelerModel.國家名稱" Role="國家名稱" Multiplicity="1" />
+          <End Type="TravelerModel.Itinerary_Plan行程計畫" Role="Itinerary_Plan行程計畫" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="國家名稱">
+              <PropertyRef Name="國家總表ID" />
+            </Principal>
+            <Dependent Role="Itinerary_Plan行程計畫">
+              <PropertyRef Name="國家總表ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order訂單__Itinerary_Plan_行程計畫">
+          <End Type="TravelerModel.Itinerary_Plan行程計畫" Role="Itinerary_Plan行程計畫" Multiplicity="0..1" />
+          <End Type="TravelerModel.Order訂單" Role="Order訂單" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Itinerary_Plan行程計畫">
+              <PropertyRef Name="Itinerary_ID" />
+            </Principal>
+            <Dependent Role="Order訂單">
+              <PropertyRef Name="Itinerary_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_行程明細__Itinerary_Plan_行程計畫">
+          <End Type="TravelerModel.Itinerary_Plan行程計畫" Role="Itinerary_Plan行程計畫" Multiplicity="1" />
+          <End Type="TravelerModel.行程明細" Role="行程明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Itinerary_Plan行程計畫">
+              <PropertyRef Name="Itinerary_ID" />
+            </Principal>
+            <Dependent Role="行程明細">
+              <PropertyRef Name="Itinerary_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order訂單_Member_Info_List">
+          <End Type="TravelerModel.Member_Info_List" Role="Member_Info_List" Multiplicity="1" />
+          <End Type="TravelerModel.Order訂單" Role="Order訂單" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Info_List">
+              <PropertyRef Name="Member_ID" />
+            </Principal>
+            <Dependent Role="Order訂單">
+              <PropertyRef Name="Member_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_交易資訊_會員資料總表">
+          <End Type="TravelerModel.Member_Info_List" Role="Member_Info_List" Multiplicity="1" />
+          <End Type="TravelerModel.Trade_Info" Role="Trade_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Info_List">
+              <PropertyRef Name="Member_ID" />
+            </Principal>
+            <Dependent Role="Trade_Info">
+              <PropertyRef Name="Member_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails隨行人員_Order訂單">
+          <End Type="TravelerModel.Order訂單" Role="Order訂單" Multiplicity="1" />
+          <End Type="TravelerModel.OrderDetails隨行人員" Role="OrderDetails隨行人員" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order訂單">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDetails隨行人員">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order訂單_Payment_Method">
+          <End Type="TravelerModel.Payment_Method" Role="Payment_Method" Multiplicity="1" />
+          <End Type="TravelerModel.Order訂單" Role="Order訂單" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Method">
+              <PropertyRef Name="Payment_Methods_ID" />
+            </Principal>
+            <Dependent Role="Order訂單">
+              <PropertyRef Name="Payment_Methods_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order訂單_訂單狀態編號ID">
+          <End Type="TravelerModel.訂單狀態編號ID" Role="訂單狀態編號ID" Multiplicity="1" />
+          <End Type="TravelerModel.Order訂單" Role="Order訂單" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="訂單狀態編號ID">
+              <PropertyRef Name="訂單狀態編號ID1" />
+            </Principal>
+            <Dependent Role="Order訂單">
+              <PropertyRef Name="訂單狀態編號ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transportation_Transportation_List">
+          <End Type="TravelerModel.Transportation_List" Role="Transportation_List" Multiplicity="1" />
+          <End Type="TravelerModel.Transportation" Role="Transportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transportation_List">
+              <PropertyRef Name="TransportationList_ID" />
+            </Principal>
+            <Dependent Role="Transportation">
+              <PropertyRef Name="TransportationList_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transportation_行程明細">
+          <End Type="TravelerModel.行程明細" Role="行程明細" Multiplicity="1" />
+          <End Type="TravelerModel.Transportation" Role="Transportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="行程明細">
+              <PropertyRef Name="行程明細ID" />
+            </Principal>
+            <Dependent Role="Transportation">
+              <PropertyRef Name="行程明細ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_國家名稱_各地區名稱總表">
+          <End Type="TravelerModel.各地區名稱總表" Role="各地區名稱總表" Multiplicity="1" />
+          <End Type="TravelerModel.國家名稱" Role="國家名稱" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="各地區名稱總表">
+              <PropertyRef Name="各地地區名稱ID" />
+            </Principal>
+            <Dependent Role="國家名稱">
+              <PropertyRef Name="各地地區名稱ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_景點報表ID_行程明細1">
+          <End Type="TravelerModel.行程明細" Role="行程明細" Multiplicity="1" />
+          <End Type="TravelerModel.景點報表ID" Role="景點報表ID" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="行程明細">
+              <PropertyRef Name="行程明細ID" />
+            </Principal>
+            <Dependent Role="景點報表ID">
+              <PropertyRef Name="行程明細ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_景點名稱總表_城市總表">
+          <End Type="TravelerModel.城市總表" Role="城市總表" Multiplicity="1" />
+          <End Type="TravelerModel.景點名稱總表" Role="景點名稱總表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="城市總表">
+              <PropertyRef Name="城市ID" />
+            </Principal>
+            <Dependent Role="景點名稱總表">
+              <PropertyRef Name="城市ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_景點報表ID_景點名稱總表">
+          <End Type="TravelerModel.景點名稱總表" Role="景點名稱總表" Multiplicity="1" />
+          <End Type="TravelerModel.景點報表ID" Role="景點報表ID" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="景點名稱總表">
+              <PropertyRef Name="景點名稱ID" />
+            </Principal>
+            <Dependent Role="景點報表ID">
+              <PropertyRef Name="景點名稱ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TravelerModelStoreContainer" CdmEntityContainer="TravelerEntities3">
+          <EntitySetMapping Name="action報表">
+            <EntityTypeMapping TypeName="TravelerModel.action報表">
+              <MappingFragment StoreEntitySet="action報表">
+                <ScalarProperty Name="Itinerary_ID" ColumnName="Itinerary ID" />
+                <ScalarProperty Name="評分表ID" ColumnName="評分表ID" />
+                <ScalarProperty Name="行為ID" ColumnName="行為ID" />
+                <ScalarProperty Name="Member_ID" ColumnName="Member ID" />
+                <ScalarProperty Name="action報表ID" ColumnName="action報表ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="action總表">
+            <EntityTypeMapping TypeName="TravelerModel.action總表">
+              <MappingFragment StoreEntitySet="action總表">
+                <ScalarProperty Name="行為名稱" ColumnName="行為名稱" />
+                <ScalarProperty Name="行為ID" ColumnName="行為ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discounts">
+            <EntityTypeMapping TypeName="TravelerModel.Discount">
+              <MappingFragment StoreEntitySet="Discount">
+                <ScalarProperty Name="Member_ID" ColumnName="Member ID" />
+                <ScalarProperty Name="優惠方案ID" ColumnName="優惠方案ID" />
+                <ScalarProperty Name="Discount_ID" ColumnName="Discount ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hotel_Lists">
+            <EntityTypeMapping TypeName="TravelerModel.Hotel_List">
+              <MappingFragment StoreEntitySet="Hotel List">
+                <ScalarProperty Name="Hotel_image" ColumnName="Hotel image" />
+                <ScalarProperty Name="Hotel_Phone" ColumnName="Hotel Phone" />
+                <ScalarProperty Name="Hotel_Address" ColumnName="Hotel Address" />
+                <ScalarProperty Name="Hotel_Name" ColumnName="Hotel Name" />
+                <ScalarProperty Name="Hotel_ID" ColumnName="Hotel ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Itinerary_Plan行程計畫">
+            <EntityTypeMapping TypeName="TravelerModel.Itinerary_Plan行程計畫">
+              <MappingFragment StoreEntitySet="Itinerary Plan行程計畫">
+                <ScalarProperty Name="尚可參加人數" ColumnName="尚可參加人數" />
+                <ScalarProperty Name="國家總表ID" ColumnName="國家總表ID" />
+                <ScalarProperty Name="圖片" ColumnName="圖片" />
+                <ScalarProperty Name="介紹文章" ColumnName="介紹文章" />
+                <ScalarProperty Name="旅遊主題ID" ColumnName="旅遊主題ID" />
+                <ScalarProperty Name="旅遊類型ID" ColumnName="旅遊類型ID" />
+                <ScalarProperty Name="Itinerary_Describtion" ColumnName="Itinerary Describtion" />
+                <ScalarProperty Name="Single_Journey_Price" ColumnName="Single Journey Price" />
+                <ScalarProperty Name="Maximum_number_of_people" ColumnName="Maximum number of people" />
+                <ScalarProperty Name="Inbound_Date" ColumnName="Inbound Date" />
+                <ScalarProperty Name="Departure_Date" ColumnName="Departure Date" />
+                <ScalarProperty Name="Itinerary_Days" ColumnName="Itinerary Days" />
+                <ScalarProperty Name="Itinerary_Name" ColumnName="Itinerary Name" />
+                <ScalarProperty Name="Itinerary_ID" ColumnName="Itinerary ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Member_Info_Lists">
+            <EntityTypeMapping TypeName="TravelerModel.Member_Info_List">
+              <MappingFragment StoreEntitySet="Member Info List">
+                <ScalarProperty Name="Passport_Number" ColumnName="Passport Number" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="ID_number" ColumnName="ID_number" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="bonus_points" ColumnName="bonus points" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="D_O_B" ColumnName="D.O.B" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Member_ID" ColumnName="Member ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails隨行人員">
+            <EntityTypeMapping TypeName="TravelerModel.OrderDetails隨行人員">
+              <MappingFragment StoreEntitySet="OrderDetails隨行人員">
+                <ScalarProperty Name="人數" ColumnName="人數" />
+                <ScalarProperty Name="購買日期" ColumnName="購買日期" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Member_ID" ColumnName="Member ID" />
+                <ScalarProperty Name="OrderDetails隨行人員ID" ColumnName="OrderDetails隨行人員ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order訂單">
+            <EntityTypeMapping TypeName="TravelerModel.Order訂單">
+              <MappingFragment StoreEntitySet="Order訂單">
+                <ScalarProperty Name="訂單狀態編號ID" ColumnName="訂單狀態編號ID" />
+                <ScalarProperty Name="Credit_Card_Number" ColumnName="Credit Card Number" />
+                <ScalarProperty Name="Itinerary_ID" ColumnName="Itinerary ID" />
+                <ScalarProperty Name="Payment_Methods_ID" ColumnName="Payment Methods ID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Member_ID" ColumnName="Member ID" />
+                <ScalarProperty Name="Unified_Business_No_" ColumnName="Unified Business No." />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payment_Methods">
+            <EntityTypeMapping TypeName="TravelerModel.Payment_Method">
+              <MappingFragment StoreEntitySet="Payment Method">
+                <ScalarProperty Name="C_Payment_Methods" ColumnName="[Payment Methods" />
+                <ScalarProperty Name="Payment_Methods_ID" ColumnName="Payment Methods ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TravelerModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trade_Infoes">
+            <EntityTypeMapping TypeName="TravelerModel.Trade_Info">
+              <MappingFragment StoreEntitySet="Trade Info">
+                <ScalarProperty Name="Member_ID" ColumnName="Member ID" />
+                <ScalarProperty Name="Chechout_Date" ColumnName="Chechout Date" />
+                <ScalarProperty Name="Invoice_number" ColumnName="Invoice number" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="Trade_Detail" ColumnName="Trade Detail" />
+                <ScalarProperty Name="Unified_Business_No_" ColumnName="Unified Business No." />
+                <ScalarProperty Name="Order_No_" ColumnName="Order No." />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transportations">
+            <EntityTypeMapping TypeName="TravelerModel.Transportation">
+              <MappingFragment StoreEntitySet="Transportation">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Time_of_Arrival" ColumnName="Time of Arrival" />
+                <ScalarProperty Name="Departure_Time" ColumnName="Departure Time" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Departure" ColumnName="Departure" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company Name" />
+                <ScalarProperty Name="交通工具班次" ColumnName="交通工具班次" />
+                <ScalarProperty Name="TransportationList_ID" ColumnName="TransportationList ID" />
+                <ScalarProperty Name="行程明細ID" ColumnName="行程明細ID" />
+                <ScalarProperty Name="TransportationID" ColumnName="TransportationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transportation_Lists">
+            <EntityTypeMapping TypeName="TravelerModel.Transportation_List">
+              <MappingFragment StoreEntitySet="Transportation List">
+                <ScalarProperty Name="Transportation" ColumnName="Transportation" />
+                <ScalarProperty Name="TransportationList_ID" ColumnName="TransportationList ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="主題類表">
+            <EntityTypeMapping TypeName="TravelerModel.主題類表">
+              <MappingFragment StoreEntitySet="主題類表">
+                <ScalarProperty Name="旅遊主題名稱" ColumnName="旅遊主題名稱" />
+                <ScalarProperty Name="旅遊主題ID" ColumnName="旅遊主題ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="各地區名稱總表">
+            <EntityTypeMapping TypeName="TravelerModel.各地區名稱總表">
+              <MappingFragment StoreEntitySet="各地區名稱總表">
+                <ScalarProperty Name="各地地區名稱" ColumnName="各地地區名稱" />
+                <ScalarProperty Name="各地地區名稱ID" ColumnName="各地地區名稱ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="行程明細">
+            <EntityTypeMapping TypeName="TravelerModel.行程明細">
+              <MappingFragment StoreEntitySet="行程明細">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Hotel_ID" ColumnName="Hotel ID" />
+                <ScalarProperty Name="DAY" ColumnName="DAY" />
+                <ScalarProperty Name="Itinerary_ID" ColumnName="Itinerary ID" />
+                <ScalarProperty Name="行程明細ID" ColumnName="行程明細ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="城市總表">
+            <EntityTypeMapping TypeName="TravelerModel.城市總表">
+              <MappingFragment StoreEntitySet="城市總表">
+                <ScalarProperty Name="城市名稱" ColumnName="城市名稱" />
+                <ScalarProperty Name="各地地區名稱ID" ColumnName="各地地區名稱ID" />
+                <ScalarProperty Name="城市ID" ColumnName="城市ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="訂單狀態編號ID">
+            <EntityTypeMapping TypeName="TravelerModel.訂單狀態編號ID">
+              <MappingFragment StoreEntitySet="訂單狀態編號ID">
+                <ScalarProperty Name="訂單狀態" ColumnName="訂單狀態" />
+                <ScalarProperty Name="訂單狀態編號ID1" ColumnName="訂單狀態編號ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="旅遊類型總表">
+            <EntityTypeMapping TypeName="TravelerModel.旅遊類型總表">
+              <MappingFragment StoreEntitySet="旅遊類型總表">
+                <ScalarProperty Name="旅遊類型" ColumnName="旅遊類型" />
+                <ScalarProperty Name="旅遊類型ID" ColumnName="旅遊類型ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="國家名稱">
+            <EntityTypeMapping TypeName="TravelerModel.國家名稱">
+              <MappingFragment StoreEntitySet="國家名稱">
+                <ScalarProperty Name="各地地區名稱ID" ColumnName="各地地區名稱ID" />
+                <ScalarProperty Name="國家名稱1" ColumnName="國家名稱" />
+                <ScalarProperty Name="國家總表ID" ColumnName="國家總表ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="國家表ID">
+            <EntityTypeMapping TypeName="TravelerModel.國家表ID">
+              <MappingFragment StoreEntitySet="國家表ID">
+                <ScalarProperty Name="國家名稱" ColumnName="國家名稱" />
+                <ScalarProperty Name="各地地區名稱ID" ColumnName="各地地區名稱ID" />
+                <ScalarProperty Name="國家表ID1" ColumnName="國家表ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="景點名稱總表">
+            <EntityTypeMapping TypeName="TravelerModel.景點名稱總表">
+              <MappingFragment StoreEntitySet="景點名稱總表">
+                <ScalarProperty Name="景點圖片3" ColumnName="景點圖片3" />
+                <ScalarProperty Name="景點圖片2" ColumnName="景點圖片2" />
+                <ScalarProperty Name="景點圖片1" ColumnName="景點圖片1" />
+                <ScalarProperty Name="景點描述" ColumnName="景點描述" />
+                <ScalarProperty Name="城市ID" ColumnName="城市ID" />
+                <ScalarProperty Name="景點名稱" ColumnName="景點名稱" />
+                <ScalarProperty Name="景點名稱ID" ColumnName="景點名稱ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="景點報表ID">
+            <EntityTypeMapping TypeName="TravelerModel.景點報表ID">
+              <MappingFragment StoreEntitySet="景點報表ID">
+                <ScalarProperty Name="景點名稱ID" ColumnName="景點名稱ID" />
+                <ScalarProperty Name="行程明細ID" ColumnName="行程明細ID" />
+                <ScalarProperty Name="景點報表ID1" ColumnName="景點報表ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="評分表">
+            <EntityTypeMapping TypeName="TravelerModel.評分表">
+              <MappingFragment StoreEntitySet="評分表">
+                <ScalarProperty Name="評論日期" ColumnName="評論日期" />
+                <ScalarProperty Name="評論" ColumnName="評論" />
+                <ScalarProperty Name="評分" ColumnName="評分" />
+                <ScalarProperty Name="評分表ID" ColumnName="評分表ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="優惠方案">
+            <EntityTypeMapping TypeName="TravelerModel.優惠方案">
+              <MappingFragment StoreEntitySet="優惠方案">
+                <ScalarProperty Name="優惠方案名稱" ColumnName="優惠方案名稱" />
+                <ScalarProperty Name="優惠方案ID" ColumnName="優惠方案ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

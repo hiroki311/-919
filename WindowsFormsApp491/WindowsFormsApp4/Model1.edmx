@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TravelerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Hotel List">
+          <Key>
+            <PropertyRef Name="Hotel ID" />
+          </Key>
+          <Property Name="Hotel ID" Type="int" Nullable="false" />
+          <Property Name="Hotel Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Hotel Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RoomType ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member Info List">
+          <Key>
+            <PropertyRef Name="Member ID" />
+          </Key>
+          <Property Name="Member ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Phone_Number" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID_number" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="行程明細">
+          <Key>
+            <PropertyRef Name="行程明細ID" />
+          </Key>
+          <Property Name="行程明細ID" Type="int" Nullable="false" />
+          <Property Name="Itinerary ID" Type="int" Nullable="false" />
+          <Property Name="TransportationID" Type="int" Nullable="false" />
+          <Property Name="DAY" Type="int" Nullable="false" />
+          <Property Name="Hotel ID" Type="int" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="景點報表ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="城市總表">
+          <Key>
+            <PropertyRef Name="城市ID" />
+          </Key>
+          <Property Name="城市ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="城市名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_單日行程表_住宿飯店總表">
+          <End Role="Hotel List" Type="Self.Hotel List" Multiplicity="0..1" />
+          <End Role="行程明細" Type="Self.行程明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel List">
+              <PropertyRef Name="Hotel ID" />
+            </Principal>
+            <Dependent Role="行程明細">
+              <PropertyRef Name="Hotel ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TravelerModelStoreContainer">
+          <EntitySet Name="Hotel List" EntityType="Self.Hotel List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member Info List" EntityType="Self.Member Info List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="行程明細" EntityType="Self.行程明細" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="城市總表" EntityType="Self.城市總表" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_單日行程表_住宿飯店總表" Association="Self.FK_單日行程表_住宿飯店總表">
+            <End Role="Hotel List" EntitySet="Hotel List" />
+            <End Role="行程明細" EntitySet="行程明細" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TravelerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Member_Info_List">
+          <Key>
+            <PropertyRef Name="Member_ID" />
+          </Key>
+          <Property Name="Member_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TravelerEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Member_Info_Lists" EntityType="Self.Member_Info_List" />
+          <EntitySet Name="Hotel_Lists" EntityType="TravelerModel.Hotel_List" />
+          <EntitySet Name="行程明細" EntityType="TravelerModel.行程明細" />
+          <AssociationSet Name="FK_單日行程表_住宿飯店總表" Association="TravelerModel.FK_單日行程表_住宿飯店總表">
+            <End Role="Hotel_List" EntitySet="Hotel_Lists" />
+            <End Role="行程明細" EntitySet="行程明細" />
+          </AssociationSet>
+          <EntitySet Name="城市總表" EntityType="TravelerModel.城市總表" />
+        </EntityContainer>
+        <EntityType Name="Hotel_List">
+          <Key>
+            <PropertyRef Name="Hotel_ID" />
+          </Key>
+          <Property Name="Hotel_ID" Type="Int32" Nullable="false" />
+          <Property Name="Hotel_Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Hotel_Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoomType_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="行程明細" Relationship="TravelerModel.FK_單日行程表_住宿飯店總表" FromRole="Hotel_List" ToRole="行程明細" />
+        </EntityType>
+        <EntityType Name="行程明細">
+          <Key>
+            <PropertyRef Name="行程明細ID" />
+          </Key>
+          <Property Name="行程明細ID" Type="Int32" Nullable="false" />
+          <Property Name="Itinerary_ID" Type="Int32" Nullable="false" />
+          <Property Name="TransportationID" Type="Int32" Nullable="false" />
+          <Property Name="DAY" Type="Int32" Nullable="false" />
+          <Property Name="Hotel_ID" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="景點報表ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hotel_List" Relationship="TravelerModel.FK_單日行程表_住宿飯店總表" FromRole="行程明細" ToRole="Hotel_List" />
+        </EntityType>
+        <Association Name="FK_單日行程表_住宿飯店總表">
+          <End Type="TravelerModel.Hotel_List" Role="Hotel_List" Multiplicity="0..1" />
+          <End Type="TravelerModel.行程明細" Role="行程明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel_List">
+              <PropertyRef Name="Hotel_ID" />
+            </Principal>
+            <Dependent Role="行程明細">
+              <PropertyRef Name="Hotel_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="城市總表">
+          <Key>
+            <PropertyRef Name="城市ID" />
+          </Key>
+          <Property Name="城市ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="城市名稱" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TravelerModelStoreContainer" CdmEntityContainer="TravelerEntities3">
+          <EntitySetMapping Name="Member_Info_Lists">
+            <EntityTypeMapping TypeName="TravelerModel.Member_Info_List">
+              <MappingFragment StoreEntitySet="Member Info List">
+                <ScalarProperty Name="Member_ID" ColumnName="Member ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="ID_number" ColumnName="ID_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hotel_Lists">
+            <EntityTypeMapping TypeName="TravelerModel.Hotel_List">
+              <MappingFragment StoreEntitySet="Hotel List">
+                <ScalarProperty Name="RoomType_ID" ColumnName="RoomType ID" />
+                <ScalarProperty Name="Hotel_Address" ColumnName="Hotel Address" />
+                <ScalarProperty Name="Hotel_Name" ColumnName="Hotel Name" />
+                <ScalarProperty Name="Hotel_ID" ColumnName="Hotel ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="行程明細">
+            <EntityTypeMapping TypeName="TravelerModel.行程明細">
+              <MappingFragment StoreEntitySet="行程明細">
+                <ScalarProperty Name="景點報表ID" ColumnName="景點報表ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Hotel_ID" ColumnName="Hotel ID" />
+                <ScalarProperty Name="DAY" ColumnName="DAY" />
+                <ScalarProperty Name="TransportationID" ColumnName="TransportationID" />
+                <ScalarProperty Name="Itinerary_ID" ColumnName="Itinerary ID" />
+                <ScalarProperty Name="行程明細ID" ColumnName="行程明細ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="城市總表">
+            <EntityTypeMapping TypeName="TravelerModel.城市總表">
+              <MappingFragment StoreEntitySet="城市總表">
+                <ScalarProperty Name="城市名稱" ColumnName="城市名稱" />
+                <ScalarProperty Name="城市ID" ColumnName="城市ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

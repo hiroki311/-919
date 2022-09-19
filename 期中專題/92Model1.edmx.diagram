@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c676729e301b41548cb98da0471a6444" Name="Diagram1">
+        <EntityTypeShape EntityType="TravelerModel.action報表" Width="1.5" PointX="7.5" PointY="7.375" />
+        <EntityTypeShape EntityType="TravelerModel.action總表" Width="1.5" PointX="5.25" PointY="24.625" />
+        <EntityTypeShape EntityType="TravelerModel.Discount" Width="1.5" PointX="7.5" PointY="18.875" />
+        <EntityTypeShape EntityType="TravelerModel.Hotel_List" Width="1.5" PointX="5.25" PointY="2.625" />
+        <EntityTypeShape EntityType="TravelerModel.Itinerary_Plan行程計畫" Width="1.5" PointX="5.25" PointY="6.375" />
+        <EntityTypeShape EntityType="TravelerModel.Member_Info_List" Width="1.5" PointX="5.25" PointY="18.75" />
+        <EntityTypeShape EntityType="TravelerModel.OrderDetails隨行人員" Width="1.5" PointX="12.75" PointY="7.625" />
+        <EntityTypeShape EntityType="TravelerModel.Order訂單" Width="1.5" PointX="10.5" PointY="7" />
+        <EntityTypeShape EntityType="TravelerModel.Payment_Method" Width="1.5" PointX="8.25" PointY="16" />
+        <EntityTypeShape EntityType="TravelerModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="TravelerModel.Trade_Info" Width="1.5" PointX="7.5" PointY="22.25" />
+        <EntityTypeShape EntityType="TravelerModel.Transportation" Width="1.5" PointX="12.75" PointY="3.125" />
+        <EntityTypeShape EntityType="TravelerModel.Transportation_List" Width="1.5" PointX="10.5" PointY="0.875" />
+        <EntityTypeShape EntityType="TravelerModel.主題類表" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="TravelerModel.各地區名稱總表" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="TravelerModel.行程明細" Width="1.5" PointX="7.5" PointY="3.375" />
+        <EntityTypeShape EntityType="TravelerModel.城市總表" Width="1.5" PointX="5.25" PointY="12.75" />
+        <EntityTypeShape EntityType="TravelerModel.訂單狀態編號ID" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="TravelerModel.旅遊類型總表" Width="1.5" PointX="3" PointY="11" />
+        <EntityTypeShape EntityType="TravelerModel.國家名稱" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="TravelerModel.國家表ID" Width="1.5" PointX="9.75" PointY="11.25" />
+        <EntityTypeShape EntityType="TravelerModel.景點名稱總表" Width="1.5" PointX="7.5" PointY="12.375" />
+        <EntityTypeShape EntityType="TravelerModel.景點報表ID" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="TravelerModel.評分表" Width="1.5" PointX="5.25" PointY="16.125" />
+        <EntityTypeShape EntityType="TravelerModel.優惠方案" Width="1.5" PointX="5.25" PointY="27.125" />
+        <AssociationConnector Association="TravelerModel.FK_action報表_action總表" />
+        <AssociationConnector Association="TravelerModel.FK_action報表_Itinerary_Plan行程計畫" />
+        <AssociationConnector Association="TravelerModel.FK_action報表_Member_Info_List" />
+        <AssociationConnector Association="TravelerModel.FK_action報表_評分表" />
+        <AssociationConnector Association="TravelerModel.FK_Discount_Member_Info_List" />
+        <AssociationConnector Association="TravelerModel.FK_Discount_優惠方案" />
+        <AssociationConnector Association="TravelerModel.FK_單日行程表_住宿飯店總表" />
+        <AssociationConnector Association="TravelerModel.FK__Itinerary_Plan_行程計畫_主題類表" />
+        <AssociationConnector Association="TravelerModel.FK__Itinerary_Plan_行程計畫_旅遊類型總表" />
+        <AssociationConnector Association="TravelerModel.FK_Itinerary_Plan行程計畫_國家名稱" />
+        <AssociationConnector Association="TravelerModel.FK_Order訂單__Itinerary_Plan_行程計畫" />
+        <AssociationConnector Association="TravelerModel.FK_行程明細__Itinerary_Plan_行程計畫" />
+        <AssociationConnector Association="TravelerModel.FK_Order訂單_Member_Info_List" />
+        <AssociationConnector Association="TravelerModel.FK_交易資訊_會員資料總表" />
+        <AssociationConnector Association="TravelerModel.FK_OrderDetails隨行人員_Order訂單" />
+        <AssociationConnector Association="TravelerModel.FK_Order訂單_Payment_Method" />
+        <AssociationConnector Association="TravelerModel.FK_Order訂單_訂單狀態編號ID" />
+        <AssociationConnector Association="TravelerModel.FK_Transportation_Transportation_List" />
+        <AssociationConnector Association="TravelerModel.FK_Transportation_行程明細" />
+        <AssociationConnector Association="TravelerModel.FK_國家名稱_各地區名稱總表" />
+        <AssociationConnector Association="TravelerModel.FK_景點報表ID_行程明細1" />
+        <AssociationConnector Association="TravelerModel.FK_景點名稱總表_城市總表" />
+        <AssociationConnector Association="TravelerModel.FK_景點報表ID_景點名稱總表" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
